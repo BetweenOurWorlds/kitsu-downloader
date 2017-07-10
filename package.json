@@ -1,0 +1,15 @@
+{
+  "name": "kitsu-downloader",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pieter Heyvaert",
+  "license": "MIT",
+  "dependencies": {
+    "kitsu": "^1.2.1",
+    "q": "^1.5.0"
+  }
+}
