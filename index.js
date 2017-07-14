@@ -10,14 +10,24 @@ if (!offset || !filePrefix || !outputFolder) {
   process.exit(1);
 }
 
-download(20, offset).then(a => {
+download(20, offset).then(res => {
+  let a = res.anime;
   delete a.links;
-  let filename = `${filePrefix}-${offset}.json`;
-  let path = `${outputFolder}/${filename}`;
+  let filenameAnime = `${filePrefix}-${offset}.json`;
+  let pathAnime = `${outputFolder}/${filenameAnime}`;
+  let filenameStreams = `${filePrefix}-streams-${offset}.json`
+  let pathStreams = `${outputFolder}/${filenameStreams}`;
 
-  fs.writeFile(path, JSON.stringify(a), err => {
+  fs.writeFile(pathAnime, JSON.stringify(a, null, 2), err => {
     if (err) {
-      console.error(`Something went wrong! We couldn't write the content to file '${path}'.`);
+      console.error(`Something went wrong! We couldn't write the content to file '${pathAnime}'.`);
+      console.error(err);
+    }
+  });
+
+  fs.writeFile(pathStreams, JSON.stringify(res.streams, null, 2), err => {
+    if (err) {
+      console.error(`Something went wrong! We couldn't write the content to file '${pathStreams}'.`);
       console.error(err);
     }
   });
