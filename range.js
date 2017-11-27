@@ -14,6 +14,8 @@ if (start === undefined || stop === undefined || !filePrefix || !outputFolder) {
 recursive(start);
 
 function recursive(current) {
+  console.log(`working on ${current}`);
+
   download(20, current * 20).then(res => {
     let a = res.anime;
     delete a.links;
@@ -34,7 +36,7 @@ function recursive(current) {
           console.error(`Something went wrong! We couldn't write the content to file '${pathStreams}'.`);
           console.error(err);
         }
-
+	
         if (current !== stop) {
           recursive(current + 1);
         }
