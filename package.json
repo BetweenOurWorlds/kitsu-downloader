@@ -10,6 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "kitsu": "^1.2.1",
-    "q": "^1.5.0"
+    "q": "^1.5.0",
+    "sync-request": "^4.1.0",
+    "validator": "^9.4.0"
   }
 }
