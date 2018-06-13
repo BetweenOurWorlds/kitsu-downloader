@@ -1,2 +1,5 @@
 node_modules
 anime-*.json
+.idea
+output
+test
