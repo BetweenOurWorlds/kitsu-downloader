@@ -17,7 +17,7 @@ function recursive(current) {
   console.log(`working on ${current}`);
 
   download(20, current * 20).then(res => {
-    console.log(res);
+    //console.log(res);
 
     let filenameCharacter = `${filePrefix}-${current}.json`;
     let pathCharacter = `${outputFolder}/${filenameCharacter}`;
