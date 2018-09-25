@@ -28,6 +28,8 @@ function recursive(current) {
     let pathEpisodes = `${outputFolder}/${filenameEpisodes}`;
     let filenameSeasons = `${filePrefix}-seasons-${current}.json`;
     let pathSeasons = `${outputFolder}/${filenameSeasons}`;
+    let filenameCharacters = `${filePrefix}-characters-${current}.json`;
+    let pathCharacters = `${outputFolder}/${filenameCharacters}`;
 
     fs.writeFile(pathAnime, JSON.stringify(a, null, 2), err => {
       if (err) {
@@ -53,9 +55,16 @@ function recursive(current) {
               console.error(err);
             }
 
-            if (current !== stop) {
-              recursive(current + 1);
-            }
+            fs.writeFile(pathCharacters, JSON.stringify(res.characters, null, 2), err => {
+              if (err) {
+                console.error(`Something went wrong! We couldn't write the content to file '${pathCharacters}'.`);
+                console.error(err);
+              }
+
+              if (current !== stop) {
+                recursive(current + 1);
+              }
+            });
           });
         });
       });
