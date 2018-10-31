@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "kitsu-downloader": "./bin/cli.js"
+  },
   "author": "Pieter Heyvaert",
   "license": "MIT",
   "dependencies": {
